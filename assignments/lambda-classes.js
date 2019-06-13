@@ -123,3 +123,14 @@ const austin = new ProjectManager({
     catchPhrase: ":eggplant:",
 });
 
+
+console.log(dan.grade(nisa, 'HTML'));
+console.log(dan.demo('cats'));
+console.log(austin.speak());
+console.log(neha.listsSubjects());
+console.log(joscelyn.age);
+console.log(joscelyn.PRAssignment('CSS'));
+console.log(neha.sprintChallenge('procrastinating'));
+console.log(marguel.debugsCode(nisa, 'JavaScript'));
+console.log(austin.standUp('crying'));
+console.log(marguel.favLanguage, marguel.specialty);
