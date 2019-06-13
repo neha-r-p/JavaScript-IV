@@ -16,13 +16,12 @@ class Instructor extends Person {
         this.specialty = attrs.specialty;
         this.favLanguage = attrs.favLanguage;
         this.catchPhrase = attrs.catchPhrase;
-        this.subject = attrs.subject;
     }
-    demo() {
-        console.log(`Today we are learning about ${this.subject}`);
+    demo(subject) {
+        console.log(`Today we are learning about ${subject}`);
     }
-    grade() {
-        console.log(`${Student.name} receives a perfect score on ${this.subject}`)
+    grade(student, subject) {
+        console.log(`${student.name} receives a perfect score on ${subject}`)
     }
 }
 
@@ -53,7 +52,7 @@ class ProjectManager extends Instructor {
     standUp(channel) {
         console.log(`${this.name} announces to ${channel}, @channel standy times!`);
     }
-    debugsCode(Student, subject) {
-        console.log(`${this.name} debugs ${Student.name}'s code on ${subject}`);
+    debugsCode(student, subject) {
+        console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
     }
 }
