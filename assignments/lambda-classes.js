@@ -31,6 +31,7 @@ class Student extends Person {
         this.previousBackground = attrs.previousBackground;
         this.className = attrs.className;
         this.favSubjects = attrs.favSubjects;
+        this.grade = attrs.grade;
     }
     listsSubjects() {
         console.log(this.favSubjects.toString());
@@ -80,6 +81,7 @@ const nisa = new Student({
     previousBackground: 'Debt Collector',
     className: 'Web21',
     favSubjects: ['Html', 'CSS', 'JavaScript'],
+    grade: 97,
 });
 
     const joscelyn = new Student({
@@ -89,6 +91,7 @@ const nisa = new Student({
     previousBackground: "English teacher",
     className: 'Web21',
     favSubjects: ["Computer Science", "Philosophy", "English"],
+    grade: 95,
 });
 
 const neha = new Student({
@@ -98,6 +101,7 @@ const neha = new Student({
     previousBackground: 'Molecular biology grad student',
     className: 'WEB21',
     favSubjects: ['Virology', 'graduate napping', 'sewing'],
+    grade: 99,
 })
 
 //Project Managers
