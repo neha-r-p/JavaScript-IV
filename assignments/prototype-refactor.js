@@ -153,84 +153,85 @@ console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
 // * Create Villain and Hero constructor functions that inherit from the Humanoid constructor function.  
 // * Give the Hero and Villains different methods that could be used to remove health points from objects which could result in destruction if health gets to 0 or drops below 0;
 // * Create two new objects, one a villain and one a hero and fight it out with methods!
-/*
+
 // Villain Constructor
-function Villain(atts) {
-    Humanoid.call(this, atts);
-    this.armorName = atts.armor[0];
-    this.armorRating = atts.armor[1];
-}
-// Villain Methods
-Villain.prototype = Object.create(Humanoid.prototype);
-Villain.prototype.showcase = function () {
-    let weapons = this.weapons.join(', ');
-    return `${this.name}, from the ${this.team} team, is wearing ${this.armorName} and wields ${weapons}.`;
-}
-Villain.prototype.evilSmite = function (enemy) {
-    let damage = 3 - enemy.armorRating;
-    enemy.healthPoints = enemy.healthPoints - damage;
-    return enemy.healthPoints <= 0 ? `${enemy.name} took ${damage} point(s) of damage. ${enemy.destroy()}` : `${this.name} bonks ${enemy.name} with his ${this.weapons[1]} for ${damage} point(s) of damage. ${enemy.name} has ${enemy.healthPoints} HP left!`;
-}
-Villain.prototype.deathRay = function (enemy) {
-    let damage = 5 - enemy.armorRating;
-    enemy.healthPoints = enemy.healthPoints - damage;
-    return enemy.healthPoints <= 0 ? `${enemy.name} took ${damage} point(s) of damage. ${enemy.destroy()}` : `${this.name} blasts ${enemy.name} with his ${this.weapons[0]} for ${damage} point(s) of damage. ${enemy.name} has ${enemy.healthPoints} HP left!`;
-}
-Villain.prototype.heal = function () {
-    let healAmount = 2;
-    this.healthPoints = this.healthPoints + healAmount;
-    return `${this.name} healed ${healAmount} HP!`;
-}
+class Villain extends Humanoid {
+    constructor(atts) {
+        super(atts);
+        this.armorName = atts.armor[0];
+        this.armorRating = atts.armor[1];
+    }
+    // Villain Methods
 
+    showcase() {
+        let weapons = this.weapons.join(', ');
+        return `${this.name}, from the ${this.team} team, is wearing ${this.armorName} and wields ${weapons}.`;
+    }
+    evilSmite(enemy) {
+        let damage = 3 - enemy.armorRating;
+        enemy.healthPoints = enemy.healthPoints - damage;
+        return enemy.healthPoints <= 0 ? `${enemy.name} took ${damage} point(s) of damage. ${enemy.destroy()}` : `${this.name} bonks ${enemy.name} with his ${this.weapons[1]} for ${damage} point(s) of damage. ${enemy.name} has ${enemy.healthPoints} HP left!`;
+    }
+    deathRay(enemy) {
+        let damage = 5 - enemy.armorRating;
+        enemy.healthPoints = enemy.healthPoints - damage;
+        return enemy.healthPoints <= 0 ? `${enemy.name} took ${damage} point(s) of damage. ${enemy.destroy()}` : `${this.name} blasts ${enemy.name} with his ${this.weapons[0]} for ${damage} point(s) of damage. ${enemy.name} has ${enemy.healthPoints} HP left!`;
+    }
+    heal() {
+        let healAmount = 2;
+        this.healthPoints = this.healthPoints + healAmount;
+        return `${this.name} healed ${healAmount} HP!`;
+    }
+}
 // Hero Constructor
-function Hero(atts) {
-    Humanoid.call(this, atts);
-    this.armorName = atts.armor[0];
-    this.armorRating = atts.armor[1];
+class Hero extends Humanoid {
+    constructor(atts) {
+        super(atts);
+        this.armorName = atts.armor[0];
+        this.armorRating = atts.armor[1];
+    }
+    // Hero Methods
+    showcase() {
+        let weapons = this.weapons.join(', ');
+        return `${this.name}, from the ${this.team} team, is wearing ${this.armorName} and wields ${weapons}.`;
+    }
+    mightySlash(enemy) {
+        let damage = 5 - enemy.armorRating;
+        enemy.healthPoints = enemy.healthPoints - damage;
+        return enemy.healthPoints <= 0 ? `${enemy.name} took ${damage} points of damage. ${enemy.destroy()}` : `${this.name} slashes ${enemy.name} with his ${this.weapons[0]} for ${damage} points of damage. ${enemy.name} has ${enemy.healthPoints} HP left!`;
+    }
+    secondarySlash(enemy) {
+        let damage = 2 - enemy.armorRating;
+        enemy.healthPoints = enemy.healthPoints - damage;
+        return enemy.healthPoints <= 0 ? `${enemy.name} took ${damage} points of damage. ${enemy.destroy()}` : `${this.name} slashes ${enemy.name} with his ${this.weapons[1]} for ${damage} points of damage. ${enemy.name} has ${enemy.healthPoints} HP left!`;
+    }
+    heal() {
+        let healAmount = 2;
+        this.healthPoints = this.healthPoints + healAmount;
+        return `${this.name} healed ${healAmount} HP!`;
+    }
 }
-// Hero Methods
-Hero.prototype = Object.create(Humanoid.prototype);
-Hero.prototype.showcase = function () {
-    let weapons = this.weapons.join(', ');
-    return `${this.name}, from the ${this.team} team, is wearing ${this.armorName} and wields ${weapons}.`;
-}
-Hero.prototype.mightySlash = function (enemy) {
-    let damage = 5 - enemy.armorRating;
-    enemy.healthPoints = enemy.healthPoints - damage;
-    return enemy.healthPoints <= 0 ? `${enemy.name} took ${damage} points of damage. ${enemy.destroy()}` : `${this.name} slashes ${enemy.name} with his ${this.weapons[0]} for ${damage} points of damage. ${enemy.name} has ${enemy.healthPoints} HP left!`;
-}
-Hero.prototype.secondarySlash = function (enemy) {
-    let damage = 2 - enemy.armorRating;
-    enemy.healthPoints = enemy.healthPoints - damage;
-    return enemy.healthPoints <= 0 ? `${enemy.name} took ${damage} points of damage. ${enemy.destroy()}` : `${this.name} slashes ${enemy.name} with his ${this.weapons[1]} for ${damage} points of damage. ${enemy.name} has ${enemy.healthPoints} HP left!`;
-}
-Hero.prototype.heal = function () {
-    let healAmount = 2;
-    this.healthPoints = this.healthPoints + healAmount;
-    return `${this.name} healed ${healAmount} HP!`;
-}
-
 // Characters
 let darkdrar = new Villain({
-    createdAt: new Date(),
-    dimensions: {
-        length: 2,
-        width: 2,
-        height: 4,
-    },
-    healthPoints: 10,
-    name: 'Darkdrar',
-    team: 'Evil',
-    weapons: [
-        'Magic',
-        'Staff',
-    ],
-    language: 'Jibberish',
-    armor: [
-        'Mage Garb',
-        1,
-    ]
-});
+        createdAt: new Date(),
+        dimensions: {
+            length: 2,
+            width: 2,
+            height: 4,
+        },
+        healthPoints: 10,
+        name: 'Darkdrar',
+        team: 'Evil',
+        weapons: [
+            'Magic',
+            'Staff',
+        ],
+        language: 'Jibberish',
+        armor: [
+            'Mage Garb',
+            1,
+        ]
+    });
 
 let brellin = new Hero({
     createdAt: new Date(),
@@ -251,10 +252,9 @@ let brellin = new Hero({
         'Plate Mail',
         2,
     ]
-}); */
+});
 
-// Testing
 
-// console.log(brellin.mightySlash(darkdrar), darkdrar.deathRay(brellin), darkdrar.heal(), brellin.secondarySlash(darkdrar), darkdrar.evilSmite(brellin), brellin.secondarySlash(darkdrar), darkdrar.evilSmite(brellin), brellin.mightySlash(darkdrar), darkdrar.deathRay(brellin), brellin.heal(), darkdrar.evilSmite(brellin), brellin.mightySlash(darkdrar));
-// console.log(brellin.showcase());
-// console.log(darkdrar.showcase());
+console.log(brellin.mightySlash(darkdrar), darkdrar.deathRay(brellin), darkdrar.heal(), brellin.secondarySlash(darkdrar), darkdrar.evilSmite(brellin), brellin.secondarySlash(darkdrar), darkdrar.evilSmite(brellin), brellin.mightySlash(darkdrar), darkdrar.deathRay(brellin), brellin.heal(), darkdrar.evilSmite(brellin), brellin.mightySlash(darkdrar));
+console.log(brellin.showcase());
+console.log(darkdrar.showcase());
