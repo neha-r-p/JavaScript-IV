@@ -48,8 +48,7 @@ class GameObject {
 // CharacterStats Constructor
 class CharacterStats extends GameObject {
     constructor(stats) {
-        super(stats)
-        GameObject.call(this, stats);
+        super(stats);
         this.healthPoints = stats.healthPoints;
     }
     // CharacterStats Methods
@@ -154,7 +153,7 @@ console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
 // * Create Villain and Hero constructor functions that inherit from the Humanoid constructor function.  
 // * Give the Hero and Villains different methods that could be used to remove health points from objects which could result in destruction if health gets to 0 or drops below 0;
 // * Create two new objects, one a villain and one a hero and fight it out with methods!
-
+/*
 // Villain Constructor
 function Villain(atts) {
     Humanoid.call(this, atts);
@@ -252,10 +251,10 @@ let brellin = new Hero({
         'Plate Mail',
         2,
     ]
-});
+}); */
 
 // Testing
 
-console.log(brellin.mightySlash(darkdrar), darkdrar.deathRay(brellin), darkdrar.heal(), brellin.secondarySlash(darkdrar), darkdrar.evilSmite(brellin), brellin.secondarySlash(darkdrar), darkdrar.evilSmite(brellin), brellin.mightySlash(darkdrar), darkdrar.deathRay(brellin), brellin.heal(), darkdrar.evilSmite(brellin), brellin.mightySlash(darkdrar));
-console.log(brellin.showcase());
-console.log(darkdrar.showcase());
+// console.log(brellin.mightySlash(darkdrar), darkdrar.deathRay(brellin), darkdrar.heal(), brellin.secondarySlash(darkdrar), darkdrar.evilSmite(brellin), brellin.secondarySlash(darkdrar), darkdrar.evilSmite(brellin), brellin.mightySlash(darkdrar), darkdrar.deathRay(brellin), brellin.heal(), darkdrar.evilSmite(brellin), brellin.mightySlash(darkdrar));
+// console.log(brellin.showcase());
+// console.log(darkdrar.showcase());
