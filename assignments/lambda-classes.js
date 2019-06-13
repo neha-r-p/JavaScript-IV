@@ -34,13 +34,13 @@ class Student extends Person {
         this.favSubjects = attrs.favSubjects;
     }
     listsSubjects() {
-        console.log()
+        console.log(this.favSubjects.toString());
     }
-    PRAssignment() {
-        console.log()
+    PRAssignment(subject) {
+        console.log(`${this.name} has submitted a PR for ${subject}`);
     }
-    sprintChallenge() {
-        console.log(`${this.name} has begun sprint challenge on ${subject}`)
+    sprintChallenge(subject) {
+        console.log(`${this.name} has begun sprint challenge on ${subject}`);
     }
-
 }
+
