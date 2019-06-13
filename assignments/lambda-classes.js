@@ -56,3 +56,70 @@ class ProjectManager extends Instructor {
         console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
     }
 }
+
+
+//test Objects
+
+//Instructors
+
+const dan = new Instructor({
+    name: 'Dan',
+    age: 'Infinity',
+    location: 'Denver',
+    specialty: 'Relentless Debugger',
+    favLanguage: 'JavaScript, Python, Elm, ReasonML, SmallTalk, Haskell, C#, Java, Rust, Go, Ruby, Crystal, Elixir, Lua, and Julia',
+    catchPhrase: 'If you can do the thing, you can get paid to do the thing!',
+});
+
+//Students
+
+const nisa = new Student({
+    name: 'Nisa',
+    age: 25,
+    location: 'Ohio',
+    previousBackground: 'Debt Collector',
+    className: 'Web21',
+    favSubjects: ['Html', 'CSS', 'JavaScript'],
+});
+
+    const joscelyn = new Student({
+    name: "Joscelyn",
+    age: 29,
+    location: "California",
+    previousBackground: "English teacher",
+    className: 'Web21',
+    favSubjects: ["Computer Science", "Philosophy", "English"],
+});
+
+const neha = new Student({
+    name: 'Neha',
+    age: 31,
+    location: 'California',
+    previousBackground: 'Molecular biology grad student',
+    className: 'WEB21',
+    favSubjects: ['Virology', 'graduate napping', 'sewing'],
+})
+
+//Project Managers
+const marguel = new ProjectManager({
+    name: 'Marguel',
+    age: 'Maybe 26',
+    gradClassName: 'WEBPT2',
+    favInstructor: 'Me?',
+    location: 'California',
+    specialty: 'React',
+    favLanguage: 'JavaScript, Python, Elm etc.',
+    catchPhrase: "Practice Flex Zombies !!!",
+});
+
+const austin = new ProjectManager({
+    name: 'Austin',
+    age: '23',
+    gradClassName: 'WEB18',
+    favInstructor: 'Josh knell',
+    location: 'Somewhere',
+    specialty: 'Java',
+    favLanguage: 'Java',
+    catchPhrase: ":eggplant:",
+});
+
